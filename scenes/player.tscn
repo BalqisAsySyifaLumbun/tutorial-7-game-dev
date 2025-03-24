@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://k3w13g2x0s33"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_g8ffd"]
+[ext_resource type="Script" path="res://scripts/ray_cast_3d.gd" id="2_b4jck"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i2tg7"]
+radius = 0.399846
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nro86"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_g8ffd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_i2tg7")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0776777, 1.35508, 1.66822)
+current = true
+fov = 107.213
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+script = ExtResource("2_b4jck")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.780628, 0)
+mesh = SubResource("CapsuleMesh_nro86")
