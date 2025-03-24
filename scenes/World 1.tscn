@@ -2,8 +2,31 @@
 
 [node name="World 1" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23102, 1.3999, -5.92078)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Room 1" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24295, 0.63916, -5.92078)
 use_collision = true
 flip_faces = true
-size = Vector3(3.46204, 3.7998, 17.0164)
+size = Vector3(7.4859, 5.32129, 17.0164)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51798, -4.84588, -7.66944)
+flip_faces = true
+size = Vector3(4.1764, 5.68619, 13.3839)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1164, -0.547846, -6.53052)
+flip_faces = true
+size = Vector3(25.7699, 3.64063, 14.061)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11421, -2.85847, -6.74368)
+use_collision = true
+flip_faces = true
+size = Vector3(1.99316, 0.001, 6.59229)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23892, -0.0317011, -4.81358)
+omni_range = 63.495

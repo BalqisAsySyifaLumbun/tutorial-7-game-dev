@@ -76,4 +76,4 @@ light = NodePath("../../OmniLight3D")
 shape = SubResource("5")
 
 [node name="Player" parent="." instance=ExtResource("3_y3x5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11475, 8.0563, 0.435667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3886, 0.336103, -18.0412)

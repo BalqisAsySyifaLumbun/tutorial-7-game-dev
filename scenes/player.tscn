@@ -17,7 +17,7 @@ shape = SubResource("SphereShape3D_i2tg7")
 [node name="Head" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0776777, 1.35508, 1.66822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0776777, 1.35508, -0.155589)
 current = true
 fov = 107.213
 

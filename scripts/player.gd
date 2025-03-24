@@ -26,12 +26,18 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("movement_forward"):
 		movement_vector -= head.basis.z
+	if Input.is_action_pressed("movement_forward") and Input.is_action_pressed("jump"):
+		movement_vector -= 2 * head.basis.z
 	if Input.is_action_pressed("movement_backward"):
-		movement_vector += head.basis.z
+		movement_vector += head.basis.z * (0.05 if Input.is_action_pressed("interact") else 1)
 	if Input.is_action_pressed("movement_left"):
 		movement_vector -= head.basis.x
+	if Input.is_action_pressed("movement_left") and Input.is_action_pressed("jump"):
+		movement_vector -= 2 * head.basis.x
 	if Input.is_action_pressed("movement_right"):
 		movement_vector += head.basis.x
+	if Input.is_action_pressed("movement_right") and Input.is_action_pressed("jump"):
+		movement_vector += 2 * head.basis.x
 
 	movement_vector = movement_vector.normalized()
 
