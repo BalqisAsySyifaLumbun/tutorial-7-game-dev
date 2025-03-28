@@ -8,8 +8,20 @@ extends CharacterBody3D
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var text_2d = $Head/Sprite3D/SubViewport/Panel/Label
+@onready var text_panel = $Head/Sprite3D
 
 var camera_x_rotation: float = 0.0
+
+var database = []  # Example list with a "word" element
+	
+# You can add a method to get the database if needed
+func get_database() -> Array:
+	return database
+
+func set_database(word: String) -> void:
+	database.append(word)
+	print("Added to database:", word)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,6 +50,19 @@ func _physics_process(delta):
 		movement_vector += head.basis.x
 	if Input.is_action_pressed("movement_right") and Input.is_action_pressed("jump"):
 		movement_vector += 2 * head.basis.x
+		
+	if Input.is_key_pressed(KEY_Y):
+		var text_output = "Object Taken: " 
+		for word in get_database():
+				word = word.to_upper()
+				text_output += word + " - "
+		text_2d.text = text_output
+		text_2d.visible = true
+		text_panel.visible =true
+		print(get_database())
+	elif Input.is_key_pressed(KEY_Z):
+		text_2d.visible = false
+		text_panel.visible = false
 
 	movement_vector = movement_vector.normalized()
 
